@@ -8,9 +8,13 @@ export default function Tache({id, texte, completee, date, supprimerTache, modif
   
   
   function toggleComplete() {
-    console.log(completee);
+    
     completee = !completee;
-    // modifierTache(id, completee);
+   
+    var objModif = {
+      completee : completee
+    }
+    modifierTache(id, objModif);
   }
   
   let tacheComplete = '';

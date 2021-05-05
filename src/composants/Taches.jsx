@@ -47,7 +47,13 @@ export default function Taches({etatTaches, utilisateur}) {
   function modifierTache(idTache, updates){
     crudTaches.modifier(utilisateur.uid, idTache, updates).then(
       ()=> {
-        setTaches(taches.filter(t => t.id !== idTache))
+        setTaches(taches.map(d =>{ 
+
+         if (d.id === idTache) {
+           d.completee = !d.completee;
+         }
+         return d;
+        }))
       }
     )
   }
